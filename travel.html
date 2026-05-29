@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Глибокий розбір маркетинг-плану Travel Advantage: Як пояснювати та заробляти</title>
+   <!-- Підключення Roboto -->
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+   
+   <style>
+       /* БУКВИЦА BRAND STYLES v3.0 */
+       :root {
+           /* Palette */
+           --dark: #101827;       /* Заголовки */
+           --grey: #6B7280;       /* Текст */
+           --pink: #FA2F6B;       /* Акцент 1 */
+           --blue: #2463EB;       /* Акцент 2 */
+           --sky: #6AC2EA;        /* Доп. акцент */
+           --bg-body: #F9FAFB;    /* Фон */
+           --bg-card: #FFFFFF;    /* Плашки */
+           
+           /* Backgrounds for boxes */
+           --bg-blue-muted: #C9D7F5;
+           --bg-pink-muted: #F9CCDB;
+           
+           /* Styles */
+           --shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+           --radius: 16px;
+       }
+
+       * { margin: 0; padding: 0; box-sizing: border-box; }
+       
+       body {
+           font-family: 'Roboto', sans-serif;
+           background: var(--bg-body);
+           color: var(--grey);
+           line-height: 1.65;
+           padding: 24px 16px;
+           font-weight: 400;
+       }
+       
+       strong { color: var(--dark); font-weight: 700; }
+       
+       .container { max-width: 760px; margin: 0 auto; }
+
+       /* HEADER */
+       .header {
+           background: var(--bg-card);
+           border-radius: var(--radius);
+           padding: 40px;
+           margin-bottom: 32px;
+           box-shadow: var(--shadow);
+           border-top: 6px solid var(--blue);
+           text-align: center;
+       }
+       .header-pre { color: var(--sky); text-transform: uppercase; font-size: 13px; font-weight: 700; letter-spacing: 1px; margin-bottom: 12px; }
+       .header-title { font-size: 32px; line-height: 1.2; color: var(--dark); font-weight: 700; margin-bottom: 16px; }
+       .header-sub { font-size: 18px; color: var(--grey); font-weight: 400; }
+       
+       .tags { display: flex; justify-content: center; gap: 8px; margin-top: 24px; flex-wrap: wrap; }
+       .tag { background: #EEF4FF; color: var(--blue); padding: 4px 12px; border-radius: 100px; font-size: 13px; font-weight: 500; }
+
+       /* SECTIONS */
+       .section {
+           background: var(--bg-card);
+           border-radius: var(--radius);
+           margin-bottom: 20px;
+           box-shadow: var(--shadow);
+           overflow: hidden;
+           transition: transform 0.2s ease;
+       }
+       .section:hover { transform: translateY(-2px); }
+       
+       .section-header {
+           padding: 24px;
+           display: flex;
+           align-items: center;
+           cursor: pointer;
+           border-bottom: 1px solid transparent; /* reserve space */
+       }
+       .section.collapsed .section-header { border-bottom: none; }
+       
+       .section-icon {
+           width: 44px; height: 44px;
+           background: #EEF4FF;
+           color: var(--dark);
+           border-radius: 12px;
+           display: flex; align-items: center; justify-content: center;
+           font-size: 22px;
+           margin-right: 16px;
+           flex-shrink: 0;
+       }
+       
+       .section-title { font-size: 20px; font-weight: 700; color: var(--dark); flex: 1; margin: 0; }
+       .section-toggle {
+           width: 24px; height: 24px;
+           display: flex; align-items: center; justify-content: center;
+           color: var(--grey);
+           transition: transform 0.3s ease;
+       }
+       .section.collapsed .section-toggle { transform: rotate(-90deg); }
+
+       .section-content {
+           padding: 0 24px 32px 24px;
+           color: var(--grey);
+           font-size: 16px;
+           overflow: hidden;
+           transition: max-height 0.4s ease-out;
+       }
+       .section.collapsed .section-content { max-height: 0 !important; padding-bottom: 0; }
+       
+       /* CONTENT BLOCKS */
+       p { margin-bottom: 16px; }
+       ul, ol { margin-bottom: 24px; padding-left: 24px; }
+       li { margin-bottom: 8px; }
+
+       /* The "Pink" Box - for Warnings, Emphasis, Important */
+       .box-pink {
+           background: var(--bg-pink-muted);
+           padding: 24px;
+           border-radius: 12px;
+           margin: 24px 0;
+           border-left: 4px solid var(--pink);
+       }
+       .box-pink h4 { color: var(--dark); margin: 0 0 8px 0; font-size: 16px; display: flex; align-items: center; gap: 8px; }
+       /*.box-pink h4::before { content: '⚡'; color: var(--pink); }
+       
+       /* The "Blue" Box - for Info, Success, Pro-tips */
+       .box-blue {
+           background: var(--bg-blue-muted);
+           padding: 24px;
+           border-radius: 12px;
+           margin: 24px 0;
+           border-left: 4px solid var(--blue);
+       }
+       .box-blue h4 { color: var(--dark); margin: 0 0 8px 0; font-size: 16px; display: flex; align-items: center; gap: 8px; }
+       /*.box-blue h4::before { content: '💎'; color: var(--blue); }
+
+       /* Quote */
+       .quote {
+           font-size: 18px;
+           font-style: italic;
+           color: var(--dark);
+           border-left: 4px solid var(--sky);
+           padding-left: 20px;
+           margin: 32px 0;
+       }
+       .quote-author { font-size: 14px; color: var(--grey); font-style: normal; margin-top: 8px; font-weight: 500; }
+
+       /* Stats Grid */
+       .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 16px; margin: 24px 0; }
+       .stat-card { background: var(--bg-body); border-radius: 12px; padding: 16px; text-align: center; border: 1px solid #E5E7EB; }
+       .stat-val { font-size: 28px; font-weight: 700; color: var(--blue); line-height: 1.1; margin-bottom: 4px; }
+       .stat-lbl { font-size: 12px; text-transform: uppercase; letter-spacing: 0.5px; font-weight: 700; color: var(--grey); }
+
+       /* CHECKLIST */
+       .checklist {
+           background: var(--bg-card);
+           padding: 32px;
+           border-radius: var(--radius);
+           margin-top: 40px;
+           box-shadow: var(--shadow);
+           border: 2px solid var(--bg-blue-muted);
+       }
+       .chk-header { flex: 1; }
+       .chk-title { font-size: 24px; font-weight: 700; color: var(--dark); margin-bottom: 8px; }
+       .chk-desc { font-size: 14px; margin-bottom: 24px; }
+       
+       .chk-group-title {
+           font-size: 12px; text-transform: uppercase; letter-spacing: 1px; color: var(--pink); font-weight: 700;
+           margin: 24px 0 12px 0;
+       }
+       
+       .chk-item {
+           display: flex; gap: 16px; padding: 12px 0;
+           border-bottom: 1px solid #F3F4F6; cursor: pointer;
+           transition: all 0.2s;
+       }
+       .chk-item:hover { opacity: 0.8; }
+       .chk-item:last-child { border-bottom: none; }
+       
+       .checkbox {
+           width: 22px; height: 22px;
+           border: 2px solid var(--grey); border-radius: 6px;
+           flex-shrink: 0; margin-top: 2px; position: relative;
+           transition: all 0.2s;
+       }
+       .chk-item.checked .checkbox { background: var(--blue); border-color: var(--blue); }
+       .chk-item.checked .checkbox::after {
+           content: ''; position: absolute; left: 6px; top: 2px; width: 5px; height: 10px;
+           border: solid white; border-width: 0 2px 2px 0; transform: rotate(45deg);
+       }
+       .chk-text strong { display: block; font-size: 15px; color: var(--dark); transition: color 0.2s; }
+       .chk-item.checked .chk-text strong { color: var(--grey); text-decoration: line-through; }
+       .chk-text span { font-size: 13px; color: var(--grey); }
+
+       /* Footer */
+       .footer { text-align: center; padding: 40px 0; margin-top: 20px; border-top: 1px solid #E5E7EB; }
+       .footer-logo { font-size: 16px; font-weight: 700; color: var(--blue); text-decoration: none; display: inline-block; margin-bottom: 8px; }
+       .footer-logo:hover { color: var(--pink); }
+       .footer-time { background: var(--bg-body); display: inline-block; padding: 6px 16px; border-radius: 20px; font-size: 13px; font-weight: 500; color: var(--dark); border: 1px solid #E5E7EB; }
+
+       @media (max-width: 600px) {
+           .header { padding: 24px; text-align: left; }
+           .header-title { font-size: 24px; }
+           .section-header { padding: 16px; }
+           .section-icon { width: 36px; height: 36px; font-size: 18px; margin-right: 12px; }
+           .section-content { padding: 0 16px 24px 16px; }
+       }
+   </style>
+</head>
+<body>
+   <div class="container">
+       
+       <!-- HEADER -->
+       <header class="header">
+           <div class="header-pre">Інтерактивний конспект</div>
+           <h1 class="header-title">Глубокий разбір маркетинг-плана Travel Advantage: Як пояснити та заробляти</h1>
+           <div class="header-sub">Розуміння унікальної моделі компенсації, яка ставить людину в центр і дозволяє заробляти на подорожах.</div>
+           <div class="tags">
+               <span class="tag">#МаркетингПлан</span>
+               <span class="tag">#TravelAdvantage</span>
+               <span class="tag">#МережевийБізнес</span>
+               <span class="tag">#КомпенсаційнийПлан</span>
+               <span class="tag">#Туризм</span>
+           </div>
+       </header>
+
+       <!-- ЦИКЛ СЕКЦИЙ (Повторяй этот блок) -->
+       <section class="section">
+           <div class="section-header" onclick="toggleSection(this)">
+               <div class="section-icon">💡</div>
+               <h2 class="section-title">Вступ: Чому цей маркетинг-план особливий?</h2>
+               <div class="section-toggle">
+                   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+               </div>
+           </div>
+           <div class="section-content">
+               <p>Спікер із досвідом роботи в різних мережевих компаніях підкреслює унікальність цього маркетинг-плану, називаючи його "планом для людей". Головна відмінність — відсутність складних умов і "підводних каменів", характерних для багатьох продуктових компаній.</p>
+               <div class="box-pink">
+                   <h4> Важливо / Помилка</h4>
+                   <p>Єдиний "мінус" — це необхідність працювати. "Шари немає", — каже спікер, спростовуючи міф про легкі гроші.</p>
+               </div>
+               <p>Особлива увага приділяється необхідності для кожного партнера глибоко вивчити маркетинг-план, щоб не лише розуміти його самому, а й уміти просто та зрозуміло пояснювати іншим.</p>
+               <div class="box-blue">
+                   <h4> Інсайт лідера </h4>
+                   <p>Ваша роль як лідера — бути менеджером та адміністратором своєї команди, контролюючи їхню присутність на навчальних заходах, щоб вони отримували інформацію з перших рук.</p>
+               </div>
+           </div>
+       </section>
+
+       <section class="section">
+           <div class="section-header" onclick="toggleSection(this)">
+               <div class="section-icon">📈</div>
+               <h2 class="section-title">Особливості продукту: Як правильно говорити про ціни та цінності</h2>
+               <div class="section-toggle">
+                   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+               </div>
+           </div>
+           <div class="section-content">
+               <p>Спікер застерігає від перебільшення знижок та обіцянок "найдешевших цін", оскільки це може викликати у потенційного клієнта бажання знайти зворотне і розчаруватися. Замість цього він пропонує більш точне та сильне формулювання:</p>
+               <div class="quote">
+                   «Наші ціни не вищі за ринкові, але у більшості випадків у нас пропонується вигідна пропозиція.»
+                   <div class="quote-author">— Микола Істомер</div>
+               </div>
+               <p>Такий підхід знімає заперечення і дозволяє клієнту самому приємно здивуватися, знайшовши дійсно вигідні пропозиції.</p>
+               <h4>Що ще приваблює, крім цін?</h4>
+               <ul>
+                   <li><strong>Кешбек за рекомендації:</strong> Платформа платить за те, що ви ділитеся своїм досвідом (наприклад, виставляєте фото готелю у Facebook).</li>
+                   <li><strong>Конкурси та розіграші:</strong> Участь у відеоконкурсах із хештегами дозволяє виграти тревел-кредити.</li>
+                   <li><strong>Ексклюзивність та сервіс:</strong> Основний продукт – це ексклюзивні тури, клубне членство, закритий клуб із високим рівнем сервісу та можливістю впливати на пропозиції компанії (наприклад, організовувати групові поїздки).</li>
+                   <li><strong>Система лояльності:</strong> Накопичення балів та тревел-кредитів.</li>
+                   <li><strong>Гарантія найкращої ціни:</strong> Якщо клієнт знайде пропозицію дешевше, компанія компенсує 150% різниці. Це демонструє турботу про клієнта та впевненість у своєму продукті.</li>
+               </ul>
+               <p>Компанія не конкурує з партнерами за продаж турів, що є однією з ключових переваг компенсаційної моделі.</p>
+           </div>
+       </section>
+
+       <section class="section">
+           <div class="section-header" onclick="toggleSection(this)">
+               <div class="section-icon">💰</div>
+               <h2 class="section-title">Глибинне розуміння маркетинг-плану: Для кого він написаний?</h2>
+               <div class="section-toggle">
+                   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+               </div>
+           </div>
+           <div class="section-content">
+               <p>Існують маркетинг-плани, написані для компанії (щоб їй було вигідно), і маркетинг-плани, написані для людей (щоб партнери могли легко заробляти). Як визначити різницю?</p>
+               <div class="box-pink">
+                   <h4> Ознаки "поганого" маркетинг-плану (для компанії):</h4>
+                   <ul>
+                       <li>Складні умови для отримання рангів (наприклад, "три лідери п'ятого рівня, у яких є ще два лідери третього рангу").</li>
+                       <li>Обов'язкові щомісячні "обрізання" (наприклад, необхідність підключати нову людину щомісяця).</li>
+                       <li>Компресійний маркетинг, де у разі наздоганяння вас партнером ви втрачаєте дохід.</li>
+                       <li>Орієнтація на продаж фізичного продукту, де компанія конкурує з дистриб'ютором за частку в прибутку від продажу товару.</li>
+                   </ul>
+               </div>
+               <p>У таких моделях компанія прагне ускладнити отримання грошей партнерами, щоб максимізувати власний прибуток від продукту.</p>
+               <h4>Як працює Travel Advantage: Два потоки грошей</h4>
+               <ol>
+                   <li><strong>Туризм (Гроші компанії):</strong> Весь дохід від продажу готелів, Life Experiences, круїзів тощо йде безпосередньо компанії. Партнери з цього не заробляють.</li>
+                   <li><strong>Маркетинг (Гроші партнерів):</strong> Партнери заробляють із залучення нових членів клубу та утримання їх у системі (оплата членських внесків).</li>
+               </ol>
+               <div class="box-blue">
+                   <h4> Чому відсутність прямого інтересу в продажу турів — це добре?</h4>
+                   <p>Це виключає упередженість. Партнер не буде рекомендувати готель, де більший його відсоток. Він рекомендуватиме те, що дійсно вигідно та подобається клієнту. Це створює довіру та лояльність, що, своєю чергою, сприяє довгостроковому перебуванню клієнта в клубі та оплаті членських внесків, з яких уже й заробляє партнер.</p>
+               </div>
+               <p>Компанія може автономно існувати навіть без активної роботи мережевиків, оскільки основний дохід надходить від туристів, які користуються платформою. Це робить її стійкою до криз.</p>
+               <h4>Порівняння з Booking.com</h4>
+               <p>Booking.com, як і будь-який агрегатор, закладає відсоток на рекламу, продаж та підтримку у вартість готелів, роблячи їх дорожчими за собівартість. Щорічні витрати Booking на рекламу становлять мільярди доларів. Ці гроші беруться з націнки на всі пропозиції.</p>
+               <p>Travel Advantage, минаючи ці націнки на турах, спрямовує маркетинговий бюджет на винагороду партнерів за залучення лояльних клієнтів. Партнер стає "задоволеним рекламним агентом", який сам користується продуктом і щиро його рекомендує, що набагато ефективніше за традиційну рекламу.</p>
+               <div class="quote">
+                   «Система Букінгу — це піраміда, де більше заробляє тільки засновник. У нашій системі лояльності, якщо твій партнер працює краще, він заробляє більше за тебе. Це справедливо.»
+                   <div class="quote-author">— Микола Істомер</div>
+               </div>
+               <p>Це фундаментальна відмінність, яка дозволяє партнерам будувати чесний і справедливий бізнес.</p>
+           </div>
+       </section>
+
+       <section class="section">
+           <div class="section-header" onclick="toggleSection(this)">
+               <div class="section-icon">💎</div>
+               <h2 class="section-title">Чому важливо сплачувати абонентську плату?</h2>
+               <div class="section-toggle">
+                   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+               </div>
+           </div>
+           <div class="section-content">
+               <p>Партнер заробляє на тому, що люди залишаються в системі та сплачують членські внески. Ця абонентська плата приносить клієнту значні вигоди:</p>
+               <ul>
+                   <li><strong>Накопичення балів лояльності:</strong> Щомісяця внесені 120 доларів перетворюються на 240 тревел-балів, які можна використовувати для 100% оплати Life Experiences, фактично подвоюючи свої вкладення в подорожі.</li>
+                   <li><strong>Ексклюзивні ціни:</strong> Доступ к унікальним пропозиціям та знижкам, недоступним на відкритому ринку.</li>
+                   <li><strong>Навчання та підтримка:</strong> Частина абонентської плати йде на розвиток платформи та надання освітніх ресурсів.</li>
+               </ul>
+               <p>Завдання партнерів — навчити людей максимально ефективно користуватися системою, щоб вони бачили вигоду від членства та залишалися в клубі.</p>
+           </div>
+       </section>
+
+       <section class="section">
+           <div class="section-header" onclick="toggleSection(this)">
+               <div class="section-icon">🚀</div>
+               <h2 class="section-title">Маркетинг-план: Ранги та бонуси</h2>
+               <div class="section-toggle">
+                   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+               </div>
+           </div>
+           <div class="section-content">
+               <p>Маркетинг-план Travel Advantage максимально лояльний і заохочує роботу в глибину, при цьому має мінімальні умови для досягнення рангів.</p>
+               <h4>Мінімальні умови для рангів:</h4>
+               <ol>
+                   <li><strong>Три особисто запрошені (ОЗ):</strong> Це одноразова умова, не щомісячна.</li>
+                   <li><strong>Enrollment Team Points (ETP):</strong> Бали від особисто запрошених та їхніх команд.</li>
+                   <li><strong>Dual Team Points (DTP):</strong> Бали від бінарної структури (права та ліва гілки).</li>
+                   <li><strong>Правило 50%:</strong> Максимум 50% балів для досягнення рангу може бути взято з однієї ноги/одного особисто запрошеного. Це стимулює рівномірний розвиток структури.</li>
+               </ol>
+               <p>Ці умови значно простіші, ніж ускладнені схеми багатьох продуктових компаній.</p>
+               
+               <h3>Розбір рангів та бонусів:</h3>
+
+               <h4>1. New Ambassador (Новачок)</h4>
+               <ul>
+                   <li><strong>Бонус за підключення:</strong> 80 доларів за кожного особисто запрошеного (при пакеті 590 доларів).</li>
+                   <li><strong>Fast Start Bonus:</strong> Якщо за 7 днів новачок підключає 2 людей, отримує додаткові 150 доларів (75 одразу, 75 після другої оплати абонентки).</li>
+               </ul>
+
+               <h4>2. Silver Ambassador (Срібло)</h4>
+               <p>Досягається за наявності 3 особисто запрошених.</p>
+               <ul>
+                   <li><strong>Бонус за підключення:</strong> 80 доларів.</li>
+                   <li><strong>Builder Bonus (за статус Silver):</strong> +20 доларів за кожне нове підключення у вашій команді.</li>
+                   <li><strong>Бінарний бонус:</strong> 4 долари на день (120 доларів на місяць).</li>
+               </ul>
+               <div class="box-pink">
+                   <h4> Важливо: Оплата абонентської плати </h4>
+                   <p>Перші 120 доларів, зароблені вами (чи то з особистих запрошень, чи з бінарного бонусу), автоматично йдуть на оплату вашої абонентської плати за наступний місяць. Це гарантує вашу активність та безперервність доходу. Наступні заробітки доступні для виведення.</p>
+               </div>
+               <div class="box-blue">
+                   <h4>Ключовий ранг: Silver</h4>
+                   <p>Silver — це фундамент бізнесу. Прагніть допомогти кожному новачку стати Silver, оскільки це запускає його в систему і показує перші результати.</p>
+               </div>
+
+               <h4>3. Gold Ambassador (Золото)</h4>
+               <p>Досягається, коли ви допомогли своїм трьом особистим партнерам стати Silver (або набрали 12 людей у команді).</p>
+               <ul>
+                   <li><strong>Бонус за підключення:</strong> 80 доларів.</li>
+                   <li><strong>Builder Bonus (за статус Gold):</strong> +40 доларів (разом 120 доларів за підключення).</li>
+                   <li><strong>Компресійний маркетинг:</strong> Ви заробляєте різницю між вашим бонусом і бонусом людини, яка запросила партнера в глибину. Наприклад, якщо ви Gold (+40), а ваш новачок (New Ambassador) запросив людину, новачок отримує 80, ви отримуєте 40. Це дозволяє заробляти з усієї глибини структури.</li>
+                   <li><strong>Boost Bonus:</strong> Якщо ваша команда (12 людей) за тиждень підключає 6 нових членів, ви отримуєте 600 доларів (300 одразу, 300 після другої абонентки).</li>
+                   <li><strong>Бінарний бонус:</strong> 10 доларів на день (300 доларів на місяць).</li>
+               </ul>
+               <p>На рівні Gold щомісячний дохід може досягати 3000-5000 доларів.</p>
+
+               <h4>4. Platinum Ambassador (Платина)</h4>
+               <p>Досягається при команді у 30 людей.</p>
+               <ul>
+                   <li><strong>Подарунок:</strong> Купон на 300 доларів на Life Experience. Це стимулює лідерів подорожувати, створювати контент та показувати можливості команди.</li>
+                   <li><strong>Бонус за підключення:</strong> 80 доларів + 60 доларів (разом 140 доларів).</li>
+                   <li><strong>Boost Bonus:</strong>
+                       <ul>
+                           <li>6 людей на тиждень командою = 600 доларів.</li>
+                           <li>12 людей на тиждень командою = 1200 доларів.</li>
+                       </ul>
+                       <p>Діє правило 50% з однієї ноги для Boost Bonus.</p>
+                   </li>
+                   <li><strong>Бінарний бонус:</strong> 15 доларів на день.</li>
+               </ul>
+               <p>На рівні Платини мінімальний дохід становить близько 1000 доларів, середній — 2000-3000 доларів на місяць.</p>
+
+               <h4>5. Titan Ambassador (Титан)</h4>
+               <p>Досягається при 30 Dual Team Points з одного боку та 30 з іншого (всього 60 людей у команді).</p>
+               <ul>
+                   <li><strong>Бонус за підключення:</strong> 80 доларів + 80 доларів (разом 160 доларів).</li>
+                   <li><strong>Автобонус:</strong> 500 доларів на місяць за наявності Audi, BMW або Mercedes не старше 10 років. В іншому випадку — 250 доларів. Це стимулює лідерів бути мобільними та проводити презентації.</li>
+                   <li><strong>Бінарний бонус:</strong> 25 доларів на день.</li>
+               </ul>
+               <p>На рівні Титана дохід може досягати 7000-8000 доларів на місяць, а мінімальний — 2000 доларів.</p>
+
+               <h4>6. Jade Ambassador (Джейд)</h4>
+               <p>Великий лідерський статус, що відкриває вхід до Президентського клубу (команда приблизно 120 людей).</p>
+               <ul>
+                   <li><strong>Президентський клуб:</strong> Дозволяє заробляти 20% з меншої ноги бінарної структури. Починається з невеликих сум (250 доларів), але на вищих рангах обчислюється тисячами.</li>
+                   <li><strong>Бонус за підключення:</strong> 80 доларів + 100 доларів (разом 180 доларів).</li>
+                   <li><strong>Автобонус та Boost Bonus:</strong> Зберігаються.</li>
+                   <li><strong>Бінарний бонус:</strong> 40 доларів на день.</li>
+                   <li><strong>Президентський відпочинок:</strong> Оплачувана компанією подорож до ексклюзивних місць (наприклад, Таїланд, Португалія).</li>
+               </ul>
+               <p>На рівні Джейд дохід може досягати 3500-10000 доларів на місяць.</p>
+               
+               <h4>Додаткові бонуси:</h4>
+               <ul>
+                   <li><strong>Бонус із першої лінії:</strong>
+                       <ul>
+                           <li>10 особистих партнерів: 10% з їхньої абонентської плати (120 доларів).</li>
+                           <li>50 особистих партнерів: 15% з їхньої абонентської плати.</li>
+                           <li>100 особистих партнерів: 20% з їхньої абонентської плати.</li>
+                           <li>101+ особистий партнер: 25% з їхньої абонентської плати.</li>
+                       </ul>
+                       <p>Цей бонус може приносити значний пасивний дохід, наприклад, 6000 доларів при 200 особистих партнерах.</p>
+                   </li>
+                   <li><strong>Подарунки за ранги:</strong> Rolex, автомобілі, вілли, грошові призи (наприклад, 25 000 доларів на Triple Diamond).</li>
+               </ul>
+               <p>Усього в маркетинг-плані 9 видів бонусів, два з яких основні (компресійна класика за підключення та дуал-маркетинг), а решта 7 — додаткові.</p>
+           </div>
+       </section>
+
+       <!-- ЧЕК-ЛИСТ -->
+       <div class="checklist">
+           <div class="chk-header">
+               <div class="chk-title">🚀 Чек-лист впровадження</div>
+               <div class="chk-desc">Позначайте виконані пункти, прогрес збережеться</div>
+           </div>
+
+           <div class="chk-group-title">Прямо зараз</div>
+           <div class="chk-item" onclick="toggleCheck(this)">
+               <div class="checkbox"></div>
+               <div class="chk-text">
+                   <strong>Вивчіть маркетинг-план глибоко</strong>
+                   <span>Зрозумійте кожен бонус та умову, щоб упевнено пояснювати його іншим.</span>
+               </div>
+           </div>
+           <div class="chk-item" onclick="toggleCheck(this)">
+               <div class="checkbox"></div>
+               <div class="chk-text">
+                   <strong>Пояснюйте цінність продукту без перебільшень</strong>
+                   <span>Використовуйте формулювання: «Наші ціни не вищі за ринкові, але у більшості випадків у нас пропонується вигідна пропозиція.»</span>
+               </div>
+           </div>
+           <div class="chk-item" onclick="toggleCheck(this)">
+               <div class="checkbox"></div>
+               <div class="chk-text">
+                   <strong>Навчіться продавати клубне членство, а не лише знижки</strong>
+                   <span>Підкреслюйте ексклюзивність, сервіс, систему лояльності та можливість впливати на продукт.</span>
+               </div>
+           </div>
+           
+           <div class="chk-group-title">Цього тижня</div>
+           <div class="chk-item" onclick="toggleCheck(this)">
+               <div class="checkbox"></div>
+               <div class="chk-text">
+                   <strong>Запросіть 3 особистих партнерів</strong>
+                   <span>Виконайте мінімальну умову для старту та досягнення рангу Silver.</span>
+               </div>
+           </div>
+           <div class="chk-item" onclick="toggleCheck(this)">
+               <div class="checkbox"></div>
+               <div class="chk-text">
+                   <strong>Допоможіть своїм новачкам стати Silver</strong>
+                   <span>Зосередьтеся на тому, щоб кожен новий партнер закрив свій перший ранг, створюючи міцний фундамент.</span>
+               </div>
+           </div>
+           <div class="chk-item" onclick="toggleCheck(this)">
+               <div class="checkbox"></div>
+               <div class="chk-text">
+                   <strong>Перевірте свій бізнес-центр</strong>
+                   <span>Переконайтеся, що ваша річна оплата активна, щоб не втратити структуру в бінарі.</span>
+               </div>
+           </div>
+           <div class="chk-item" onclick="toggleCheck(this)">
+               <div class="checkbox"></div>
+               <div class="chk-text">
+                   <strong>Регулярно відвідуйте навчання та запрошуйте команду</strong>
+                   <span>Будьте прикладом і гарантуйте, що ваша команда отримує актуальну інформацію.</span>
+               </div>
+           </div>
+           
+           <div style="margin-top: 24px; height: 6px; background: #F3F4F6; border-radius: 3px; overflow: hidden;">
+               <div id="progress" style="width: 0%; height: 100%; background: var(--blue); transition: width 0.3s;"></div>
+           </div>
+       </div>
+
+       <!-- FOOTER -->
+       <footer class="footer">
+           <div style="margin-bottom: 16px;">
+               <span class="footer-time">⏳ Заощаджено часу на вивчення: ~45 хв</span>
+           </div>
+           <div>
+               <a href="https://t.me/BukvitsaAI_bot?start=933801808" target="_blank" class="footer-logo"></a>
+           </div>
+       </footer>
+   </div>
+
+   <script>
+       // SMART LOGIC
+       function toggleSection(header) {
+           const section = header.closest('.section');
+           const content = section.querySelector('.section-content');
+           section.classList.toggle('collapsed');
+           
+           if (!section.classList.contains('collapsed')) {
+               content.style.maxHeight = content.scrollHeight + "px";
+           } else {
+               content.style.maxHeight = null;
+           }
+       }
+
+       function toggleCheck(item) {
+           item.classList.toggle('checked');
+           updateProgress();
+       }
+
+       function updateProgress() {
+           const total = document.querySelectorAll('.chk-item').length;
+           const checked = document.querySelectorAll('.chk-item.checked').length;
+           const pct = total ? (checked / total) * 100 : 0;
+           document.getElementById('progress').style.width = pct + '%';
+       }
+
+       // Init heights
+       window.addEventListener('load', () => {
+           document.querySelectorAll('.section-content').forEach(el => {
+               el.style.maxHeight = el.scrollHeight + "px";
+           });
+       });
+       window.addEventListener('resize', () => {
+            document.querySelectorAll('.section:not(.collapsed) .section-content').forEach(el => {
+               el.style.maxHeight = el.scrollHeight + "px";
+           });
+       });
+   </script>
+</body>
+</html>
